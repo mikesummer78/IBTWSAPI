@@ -2,7 +2,7 @@ package com.ib.client.examples;
 
 import com.ib.client.Contract;
 import com.ib.client.TickType;
-
+import java.sql.*;
 /**
  * Simple example which will pull the last price for a given symbol. 
  * 
@@ -36,6 +36,14 @@ public class Example1 extends ExampleBase {
     }
 
     public void run() {
+        String driverName = "org.sqlite.JDBC";
+        //  Class.forName(driverName);
+        String dbName = "hello.db";
+        String jdbc = "jdbc:sqlite";
+        String dbUrl = jdbc + ":" + dbName;
+        
+        Connection conn = DriverManager.getConnection(dbUrl);
+        
         try {
             boolean isSuccess = false;
             int waitCount = 0;
