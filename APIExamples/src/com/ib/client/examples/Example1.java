@@ -36,15 +36,11 @@ public class Example1 extends ExampleBase {
     }
 
     public void run() {
-        String driverName = "org.sqlite.JDBC";
-        //  Class.forName(driverName);
-        String dbName = "hello.db";
-        String jdbc = "jdbc:sqlite";
-        String dbUrl = jdbc + ":" + dbName;
-        
-        Connection conn = DriverManager.getConnection(dbUrl);
+        String sDriverName = "org.sqlite.JDBC";
+        Mydb db = new Mydb(sDriverName, "jdbc:sqlite:test.db");        
         
         try {
+
             boolean isSuccess = false;
             int waitCount = 0;
 
